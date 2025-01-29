@@ -1,0 +1,31 @@
+<mvc:View controllerName="project1.controller.Main"
+   xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<!-- use this to make the table occupy the available screen height -->
+		<VBox fitContainer="true">
+			<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZCDS_UX403_SADL_02" considerSelectionVariants="true" persistencyKey="SmartFilter_Explored" basicSearchFieldName="CustomerName" enableBasicSearch="true" >
+				<!-- <smartFilterBar:controlConfiguration>
+					<smartFilterBar:ControlConfiguration key="CustomerName">
+					<smartFilterBar:defaultFilterValues>
+							<smartFilterBar:SelectOption low="SAP">
+							</smartFilterBar:SelectOption>
+						</smartFilterBar:defaultFilterValues>
+					</smartFilterBar:ControlConfiguration>
+				</smartFilterBar:controlConfiguration> -->
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				<smartFilterBar:layoutData>
+					<FlexItemData shrinkFactor="0"/>
+				</smartFilterBar:layoutData>
+			</smartFilterBar:SmartFilterBar>
+			<smartTable:SmartTable id="LineItemsSmartTable" entitySet="ZCDS_UX403_SADL_02" smartFilterId="smartFilterBar" tableType="Table" enableExport="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" header="Line Items" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true" editTogglable="true" app:useSmartToggle="true">
+				<!-- layout data used to make the table growing but the filter bar fixed -->
+				<smartTable:layoutData>
+					<FlexItemData growFactor="1" baseSize="0%"/>
+				</smartTable:layoutData>
+			</smartTable:SmartTable>
+		</VBox>
+</mvc:View>
